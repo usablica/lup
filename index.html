@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Lup by usablica</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Lup</h1>
+        <p class="header">Easy to use CSS3 transition manager</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/usablica/lup/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/usablica/lup/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/usablica/lup">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/usablica">usablica</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a name="lup" class="anchor" href="#lup"><span class="octicon octicon-link"></span></a>Lup</h1>
+
+<blockquote>
+<p>Easy to use CSS3 transition manager</p>
+</blockquote>
+
+<p><strong>Lup</strong> is a lightweight and easy to use library to manage and control CSS3 transition. </p>
+
+<h2>
+<a name="hello-world" class="anchor" href="#hello-world"><span class="octicon octicon-link"></span></a>Hello world</h2>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">//take `#test` element, add `green` css class and wait for 2 seconds, then remove all css classes</span>
+<span class="nx">lup</span><span class="p">(</span><span class="s2">"#test"</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s1">'green'</span><span class="p">).</span><span class="nx">wait</span><span class="p">(</span><span class="mi">2000</span><span class="p">).</span><span class="nx">end</span><span class="p">();</span>
+</pre></div>
+
+<h2>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h2>
+
+<h3>
+<a name="luptargetelement" class="anchor" href="#luptargetelement"><span class="octicon octicon-link"></span></a>lup(targetElement)</h3>
+
+<p>To create lup object.</p>
+
+<p><strong>Available since</strong>: v0.1.0</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>targetElement: String or Object<br>
+Can be both css selector or DOM object</li>
+</ul><p><strong>Returns:</strong></p>
+
+<ul>
+<li>lup object.</li>
+</ul><p><strong>Example:</strong></p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">lup</span><span class="p">(</span><span class="s1">'#test'</span><span class="p">);</span>
+
+<span class="nx">lup</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#test'</span><span class="p">));</span>
+</pre></div>
+
+<h3>
+<a name="lupaddclassname" class="anchor" href="#lupaddclassname"><span class="octicon octicon-link"></span></a>lup.add(className)</h3>
+
+<p>Adds given CSS class name to the target element</p>
+
+<p><strong>Available since:</strong> v0.1.0</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>className: String</li>
+</ul><p><strong>Returns:</strong></p>
+
+<ul>
+<li>lup object.</li>
+</ul><p><strong>Example:</strong></p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">lup</span><span class="p">(</span><span class="s1">'#test'</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s1">'green'</span><span class="p">).</span><span class="nx">end</span><span class="p">();</span>
+</pre></div>
+
+<hr><h3>
+<a name="lupremoveclassname" class="anchor" href="#lupremoveclassname"><span class="octicon octicon-link"></span></a>lup.remove([className])</h3>
+
+<p>Removes given CSS class name from target element </p>
+
+<p><strong>Available since:</strong> v0.1.0</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>className: String (optional)</li>
+</ul><p><strong>Returns:</strong></p>
+
+<ul>
+<li>lup object.</li>
+</ul><p><strong>Example:</strong></p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">lup</span><span class="p">(</span><span class="s1">'#test'</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s1">'green'</span><span class="p">).</span><span class="nx">remove</span><span class="p">().</span><span class="nx">end</span><span class="p">();</span> <span class="cm">/* Removes `green` class */</span>
+<span class="nx">lup</span><span class="p">(</span><span class="s1">'#test'</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s1">'green'</span><span class="p">).</span><span class="nx">remove</span><span class="p">(</span><span class="s1">'green'</span><span class="p">).</span><span class="nx">end</span><span class="p">();</span> <span class="cm">/* Same as previous line, removes `green` class */</span>
+<span class="nx">lup</span><span class="p">(</span><span class="s1">'#test'</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s1">'green'</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s1">'red'</span><span class="p">).</span><span class="nx">remove</span><span class="p">().</span><span class="nx">end</span><span class="p">();</span> <span class="cm">/* Removes `red` class */</span>
+</pre></div>
+
+<hr><h3>
+<a name="lupthenfn" class="anchor" href="#lupthenfn"><span class="octicon octicon-link"></span></a>lup.then([fn])</h3>
+
+<p>Wait for completing last operation, CSS3 transition for example.</p>
+
+<p><strong>Available since:</strong> v0.1.0</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>fn: Function (optional)</li>
+</ul><p><strong>Returns:</strong></p>
+
+<ul>
+<li>lup object.</li>
+</ul><p><strong>Example:</strong></p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">lup</span><span class="p">(</span><span class="s1">'#test'</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s1">'green'</span><span class="p">).</span><span class="nx">then</span><span class="p">().</span><span class="nx">add</span><span class="p">(</span><span class="s1">'red'</span><span class="p">).</span><span class="nx">end</span><span class="p">();</span> <span class="cm">/* Adds `green` and then after completing `green` class transition, adds `red` class */</span>
+<span class="nx">lup</span><span class="p">(</span><span class="s1">'#test'</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s1">'green'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">'green completed!'</span><span class="p">)</span> <span class="p">}).</span><span class="nx">end</span><span class="p">();</span> <span class="cm">/* Adds `green`, shows `alert` after completing transition*/</span>
+</pre></div>
+
+<hr><h3>
+<a name="lupwaitmilliseconds" class="anchor" href="#lupwaitmilliseconds"><span class="octicon octicon-link"></span></a>lup.wait(milliseconds)</h3>
+
+<p>Wait and then execute next operation.</p>
+
+<p><strong>Available since:</strong> v0.1.0</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>milliseconds: Number</li>
+</ul><p><strong>Returns:</strong></p>
+
+<ul>
+<li>lup object.</li>
+</ul><p><strong>Example:</strong></p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">lup</span><span class="p">(</span><span class="s1">'#test'</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s1">'green'</span><span class="p">).</span><span class="nx">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s1">'red'</span><span class="p">).</span><span class="nx">end</span><span class="p">();</span> <span class="cm">/* Adds `green` and after one second adds `red` class */</span>
+</pre></div>
+
+<hr><h3>
+<a name="lupendfn" class="anchor" href="#lupendfn"><span class="octicon octicon-link"></span></a>lup.end([fn])</h3>
+
+<p>Execute the operations. </p>
+
+<p><strong>Available since:</strong> v0.1.0</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>fn: Number</li>
+</ul><p><strong>Returns:</strong></p>
+
+<ul>
+<li>lup object.</li>
+</ul><p><strong>Example:</strong></p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">lup</span><span class="p">(</span><span class="s1">'#test'</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s1">'green'</span><span class="p">).</span><span class="nx">end</span><span class="p">();</span> <span class="cm">/* Adds `green` css class */</span>
+</pre></div>
+
+<hr><h3>
+<a name="lupoptionoption-value" class="anchor" href="#lupoptionoption-value"><span class="octicon octicon-link"></span></a>lup.option(option, value)</h3>
+
+<p>Set a single option to lup object.</p>
+
+<p><strong>Available since</strong>: v0.1.0</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li><p>option : String
+Option key name.</p></li>
+<li><p>value : String/Number
+Value of the option.</p></li>
+</ul><p><strong>Returns:</strong></p>
+
+<ul>
+<li>lup object.</li>
+</ul><p><strong>Example:</strong></p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">lup</span><span class="p">(</span><span class="s2">"#test"</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s1">'green'</span><span class="p">).</span><span class="nx">option</span><span class="p">(</span><span class="s1">'cleanup'</span><span class="p">,</span> <span class="kc">false</span><span class="p">).</span><span class="nx">end</span><span class="p">();</span>
+</pre></div>
+
+<hr><h3>
+<a name="lupoptionsoptions" class="anchor" href="#lupoptionsoptions"><span class="octicon octicon-link"></span></a>lup.options(options)</h3>
+
+<p>Set a group of options to the lup object.</p>
+
+<p><strong>Available since</strong>: v0.1.0</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>options : Object
+Object that contains option keys with values.</li>
+</ul><p><strong>Returns:</strong></p>
+
+<ul>
+<li>lup object.</li>
+</ul><p><strong>Example:</strong></p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">lup</span><span class="p">(</span><span class="s2">"#test"</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s1">'green'</span><span class="p">).</span><span class="nx">options</span><span class="p">({</span> <span class="s1">'cleanup'</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}).</span><span class="nx">end</span><span class="p">();</span>
+</pre></div>
+
+<hr><h3>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options:</h3>
+
+<ul>
+<li>
+<code>cleanup</code>: <code>Boolean</code> and <code>true</code> by default - Clean all css classes at the end of timeline?</li>
+</ul><p><em>Note:</em> You can alter options using <code>option</code> and <code>options</code> methods.</p>
+
+<h2>
+<a name="roadmap" class="anchor" href="#roadmap"><span class="octicon octicon-link"></span></a>Roadmap</h2>
+
+<ul>
+<li>Support more than one target element</li>
+<li>Add more examples</li>
+</ul><h2>
+<a name="release-history" class="anchor" href="#release-history"><span class="octicon octicon-link"></span></a>Release History</h2>
+
+<ul>
+<li>
+<strong>v0.1.0</strong> - 2014-06-06
+
+<ul>
+<li>Initial version</li>
+</ul>
+</li>
+</ul><h2>
+<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
+
+<p><strong>Afshin Mehrabani</strong></p>
+
+<ul>
+<li><a href="https://twitter.com/afshinmeh">Twitter</a></li>
+<li><a href="https://github.com/afshinm">Github</a></li>
+<li><a href="http://afshinm.name/">Personal page</a></li>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<blockquote>
+<p>Copyright (C) 2014 Afshin Mehrabani (<a href="mailto:afshin.meh@gmail.com">afshin.meh@gmail.com</a>)</p>
+</blockquote>
+
+<pre><code>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+</code></pre>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
