@@ -11,8 +11,56 @@ Lup
 lup("#test").add('green').wait(2000).end();
 ```
 
-## How to use
+## API
 
+###lup.add(className)
+
+Adds given CSS class name to the target element
+
+**Available since:** v0.1.0
+
+**Parameters:**
+ - className: String
+
+**Returns:**
+ - lup object.
+
+**Example:**
+```javascript
+lup('#test').add('green');
+````
+
+-----
+
+###lup.remove([className])
+
+Removes given CSS class name from target element 
+
+**Available since:** v0.1.0
+
+**Parameters:**
+ - className: String (optional)
+
+**Returns:**
+ - lup object.
+
+**Example:**
+```javascript
+lup('#test').add('green').remove(); /* Removes `green` class */
+lup('#test').add('green').remove('green'); /* Same as previous line, removes `green` class */
+lup('#test').add('green').add('red').remove(); /* Removes `red` class */
+````
+
+-----
+
+## Roadmap
+- Support 
+- Add more examples
+
+## Release History
+
+ * **v0.1.0** - 2014-06-06
+   - Initial version
 
 ## Author
 **Afshin Mehrabani**
@@ -22,7 +70,7 @@ lup("#test").add('green').wait(2000).end();
 - [Personal page](http://afshinm.name/)
 
 ## License
-> Copyright (C) 2012 Afshin Mehrabani (afshin.meh@gmail.com)
+> Copyright (C) 2014 Afshin Mehrabani (afshin.meh@gmail.com)
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
     documentation files (the "Software"), to deal in the Software without restriction, including without limitation
