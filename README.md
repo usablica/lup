@@ -175,6 +175,12 @@ lup("#test").add('green').options({ 'cleanup': false }).end();
 
 ----
 
+###Options:
+
+ - `cleanup`: `Boolean` and `true` by default - Clean all css classes at the end of timeline?
+
+*Note:* You can alter options using `option` and `options` methods.
+
 ## Roadmap
 - Support more than one target element
 - Add more examples
