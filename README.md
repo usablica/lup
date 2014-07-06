@@ -14,7 +14,7 @@ lup("#test").add('green').wait(2000).end();
 
 ## API
 
-###introJs(targetElement)
+###lup(targetElement)
 
 To create lup object.
 
