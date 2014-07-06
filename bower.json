@@ -1,0 +1,9 @@
+{
+  "name": "lup",
+  "version": "0.1.0",
+  "description": "Easy to use CSS3 transition manager",
+  "keywords": ["animation", "timeline", "transition", "css3"],
+  "homepage": "https://github.com/usablica/lup",
+  "author": "Afshin Mehrabani",
+  "main": ["lup.js"]
+}

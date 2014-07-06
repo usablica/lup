@@ -1,0 +1,20 @@
+{
+    "name": "lup",
+    "description": "Easy to use CSS3 transition manager",
+    "version": "0.1.0",
+    "author": "Afshin Mehrabani <afshin.meh@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/usablica/lup"
+    },
+    "devDependencies": {
+        "node-minify": "*"
+    },
+    "engine": [
+        "node >=0.1.90"
+    ],
+    "main": "lup.js",
+    "spm": {
+        "main": "lup.js",
+    }
+}

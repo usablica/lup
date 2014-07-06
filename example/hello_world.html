@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Lup - Hello world</title>
+  <script src='../lup.js'></script>
+  <style type='text/css'>
+    #test {
+      -webkit-transition: all 0.5s  ease-out;
+      -moz-transition: all 0.5s  ease-out;
+      -o-transition: all 0.5s  ease-out;
+      -ms-transition: all 0.5s  ease-out;
+      transition: all 0.5s  ease-out;
+      position: absolute;
+      left: 10px;
+      height: 100px;
+      width: 100px;
+      background-color: black;
+    }
+    .green {
+      background-color: green !important;
+    }
+    .red {
+      background-color: red !important
+    }
+    .goto {
+      left: 100px !important;
+    }
+  </style>
+
+</head>
+<body>
+  <div id="test"></div>
+  <script>
+    lup("#test").add('green').wait(2000).remove().add('red').wait(2000).then().end();
+  </script>
+</body>
+</html>

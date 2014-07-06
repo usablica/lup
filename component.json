@@ -1,0 +1,10 @@
+{
+  "name": "lup",
+  "repo": "usablica/lup",
+  "description": "Easy to use CSS3 transition manager",
+  "version": "0.1.0",
+  "main": "lup.js",
+  "scripts": [
+    "lup.js"
+  ]
+}
