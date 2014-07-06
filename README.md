@@ -27,8 +27,8 @@ Adds given CSS class name to the target element
 
 **Example:**
 ```javascript
-lup('#test').add('green');
-````
+lup('#test').add('green').end();
+```
 
 -----
 
@@ -46,15 +46,116 @@ Removes given CSS class name from target element
 
 **Example:**
 ```javascript
-lup('#test').add('green').remove(); /* Removes `green` class */
-lup('#test').add('green').remove('green'); /* Same as previous line, removes `green` class */
-lup('#test').add('green').add('red').remove(); /* Removes `red` class */
-````
+lup('#test').add('green').remove().end(); /* Removes `green` class */
+lup('#test').add('green').remove('green').end(); /* Same as previous line, removes `green` class */
+lup('#test').add('green').add('red').remove().end(); /* Removes `red` class */
+```
 
 -----
 
+###lup.then([fn])
+
+Wait for completing last operation, CSS3 transition for example.
+
+**Available since:** v0.1.0
+
+**Parameters:**
+ - fn: Function (optional)
+
+**Returns:**
+ - lup object.
+
+**Example:**
+```javascript
+lup('#test').add('green').then().add('red').end(); /* Adds `green` and then after completing `green` class transition, adds `red` class */
+lup('#test').add('green').then(function(){ alert('green completed!') }).end(); /* Adds `green`, shows `alert` after completing transition*/
+```
+
+-----
+
+###lup.wait(milliseconds)
+
+Wait and then execute next operation.
+
+**Available since:** v0.1.0
+
+**Parameters:**
+ - milliseconds: Number
+
+**Returns:**
+ - lup object.
+
+**Example:**
+```javascript
+lup('#test').add('green').wait(1000).add('red').end(); /* Adds `green` and after one second adds `red` class */
+```
+
+-----
+
+###lup.end([fn])
+
+Execute the operations. 
+
+**Available since:** v0.1.0
+
+**Parameters:**
+ - fn: Number
+
+**Returns:**
+ - lup object.
+
+**Example:**
+```javascript
+lup('#test').add('green').end(); /* Adds `green` css class */
+```
+
+-----
+
+###lup.option(option, value)
+
+Set a single option to lup object.
+
+**Available since**: v0.1.0
+
+**Parameters:**
+ - option : String
+   Option key name.
+
+ - value : String/Number
+   Value of the option.
+
+**Returns:**
+ - lup object.
+
+**Example:**
+```javascript
+lup("#test").add('green').option('cleanup', false).end();
+````
+
+----
+
+###lup.options(options)
+
+Set a group of options to the lup object.
+
+**Available since**: v0.1.0
+
+**Parameters:**
+ - options : Object
+   Object that contains option keys with values.
+
+**Returns:**
+ - lup object.
+
+**Example:**
+```javascript
+lup("#test").add('green').options({ 'cleanup': false }).end();
+````
+
+----
+
 ## Roadmap
-- Support 
+- Support more than one target element
 - Add more examples
 
 ## Release History
