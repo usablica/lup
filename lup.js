@@ -35,9 +35,6 @@
     //to hold all operations
     this._ops = [];
 
-    //to keep all transitionEnd callbacks
-    this._transitionEnds = [];
-
     //executed operations
     this._executedOps = 0;
 
@@ -75,12 +72,9 @@
       }
     }
 
+    //css3 transition callback
     this._targetElement.addEventListener(this._transitionNames[this._propertyPrefix], function (args) {
-      self._transitionEnds.push({
-        opCount: self._executedOps
-      });
-
-      if (typeof (self._thenFn) != 'undefined' && self._thenFn != null) {
+      if (typeof (self._thenFn) == 'function') {
         self._thenFn.call(self);
 
         //clean _thenFn
@@ -176,24 +170,24 @@
 
     //execute it now
     if (transitionDuration == 0 || (this._currentOp.wait > 0 && this._currentOp.wait > transitionDuration)) {
-      _exec.call(this);
-
       //execute callback function if any
-      if (typeof (fn) != 'undefined') {
+      if (typeof (fn) == 'function') {
         fn.call(self);
       }
+
+      _exec.call(this);
 
       return;
     }
 
     //add it to the queue and wait to the transitionEnd callback
     this._thenFn = function () {
-      _exec.call(self);
-
       //execute callback function if any
-      if (typeof (fn) != 'undefined') {
+      if (typeof (fn) == 'function') {
         fn.call(self);
       }
+
+      _exec.call(self);
     }
   }
 
@@ -206,6 +200,10 @@
 
     //the end
     if (this._ops.length < 1) {
+
+      //call end callback
+      if (typeof (this._endFn) == 'function')
+        this._endFn.call(this);
 
       if (this._options.cleanup === true) {
         //and remove all classes
@@ -247,9 +245,11 @@
    * Remove all given css classes
    *
    */
-  function _end (cleanup) {
-    if (typeof (cleanup) != 'undefined')
-      this._options.cleanup = !!cleanup;
+  function _end (fn) {
+
+    //set end callback
+    if (typeof (fn) != 'undefined')
+      this._endFn = fn;
 
     //go go go
     _exec.call(this);
@@ -261,6 +261,18 @@
    */
   function _raiseError (message) {
     throw Error ('lup: ' + message);
+  }
+
+  /**
+   * Overwrites obj1's values with obj2's and adds obj2's if non existent in obj1
+   * via: http://stackoverflow.com/questions/171251/how-can-i-merge-properties-of-two-javascript-objects-dynamically
+   *
+   */
+  function _mergeOptions (obj1, obj2) {
+    var obj3 = {};
+    for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+    for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+    return obj3;
   }
 
   var lup = function (targetElement) {
@@ -294,6 +306,17 @@
 
   //Prototype
   lup.fn = Lup.prototype = {
+    clone: function () {
+      return new lup(this);
+    },
+    option: function (option, value) {
+      this._options[option] = value;
+      return this;
+    },
+    options: function (options) {
+      this._options = _mergeOptions(this._options, options);
+      return this;
+    },
     add: function (className) {
       __.call(this, _add, className);
       return this;
@@ -310,8 +333,8 @@
       _wait.call(this, milliseconds);
       return this;
     },
-    end: function (cleanup) {
-      _end.call(this, cleanup);
+    end: function (fn) {
+      _end.call(this, fn);
       return this;
     }
   };
