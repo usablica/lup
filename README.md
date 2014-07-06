@@ -7,9 +7,10 @@ Lup
 
 ## Hello world
 
-```
+```javascript
+//take `#test` element, add `green` css class and wait for 2 seconds, then remove all css classes
 lup("#test").add('green').wait(2000).end();
-```
+``` 
 
 ## API
 
