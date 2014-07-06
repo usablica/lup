@@ -14,6 +14,26 @@ lup("#test").add('green').wait(2000).end();
 
 ## API
 
+###introJs(targetElement)
+
+To create lup object.
+
+**Available since**: v0.1.0
+
+**Parameters:**
+ - targetElement : String or Object
+   Can be both css selector or DOM object
+
+**Returns:**
+ - lup object.
+
+**Example:**
+```javascript
+lup('#test');
+
+lup(document.querySelector('#test'));
+````
+
 ###lup.add(className)
 
 Adds given CSS class name to the target element
