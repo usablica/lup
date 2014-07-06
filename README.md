@@ -21,7 +21,7 @@ To create lup object.
 **Available since**: v0.1.0
 
 **Parameters:**
- - targetElement : String or Object
+ - targetElement: String or Object  
    Can be both css selector or DOM object
 
 **Returns:**
